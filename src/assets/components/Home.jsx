@@ -80,7 +80,7 @@ export default function Home() {
         </div>
       </Modal>
       <div className="container bg-blue-400 text-blue-800 p-4 mt-4">
-        <h2 className='text-lg font-semibold underline'>Your To-do:</h2>
+        <h2 className='text-lg font-semibold underline'>Your To-do:</h2> 
         <div className="todos py-2">
           {todos.map((todo, index) => (
             <div className="todo flex py-2" key={index}>  
