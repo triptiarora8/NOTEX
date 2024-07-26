@@ -83,7 +83,7 @@ export default function Home() {
         <h2 className='text-lg font-semibold underline'>Your To-do:</h2>
         <div className="todos py-2">
           {todos.map((todo, index) => (
-            <div className="todo flex py-2" key={index}>
+            <div className="todo flex py-2" key={index}>  
               <div className="text flex items-center">
                 {editIndex === index ? (
                   <input
