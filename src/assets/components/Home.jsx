@@ -52,7 +52,7 @@ export default function Home() {
     }
   }
   return (
-    <div className='container mx-auto py-4'>
+    <div className='container mx-auto py-4 min-h-screen'>
       <h1 className='text-center text-2xl/10 font-extrabold h-10 underline'>
         To do list- for your daily task manager
       </h1>
@@ -92,7 +92,8 @@ export default function Home() {
           </div>
         </div>
       </Modal>
-      <div className="container bg-blue-400 text-blue-800 p-4 mt-4">
+      <div className="flex justify-center h-1/2">
+      <div className="container bg-blue-400 text-blue-800 p-4 mt-4 w-full md:w-1/2 overflow-y-auto">
         <h2 className='text-lg font-semibold underline'>Your To-do:</h2> 
         <div className="todos py-2">
           {filteredTodos.map((todo, index) => (
@@ -125,6 +126,7 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </div>
   );
