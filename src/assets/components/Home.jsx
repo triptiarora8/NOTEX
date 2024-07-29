@@ -9,6 +9,7 @@ export default function Home() {
   const [newTodo, setNewTodo] = useState("");//temprory value hold
   const [editIndex, setEditIndex] = useState(null);
   const [editText, setEditText] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
@@ -40,7 +41,10 @@ export default function Home() {
     updatedTodos.splice(index, 1);
     setTodos(updatedTodos);
   };
-  
+
+  const filteredTodos = todos.filter(todo => 
+    todo.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   return (
     <div className='container mx-auto py-4'>
       <h1 className='text-center text-2xl/10 font-extrabold h-10 underline'>
@@ -53,6 +57,8 @@ export default function Home() {
         >
           Create New 
         </button>
+        <input type="text" placeholder='Search' className='bg-gray-500 p-2 rounded' value={searchQuery}
+        onChange={(e)=> setSearchQuery(e.target.value)}/>
       </div>
       <Modal
         isOpen={modalIsOpen}
@@ -82,7 +88,7 @@ export default function Home() {
       <div className="container bg-blue-400 text-blue-800 p-4 mt-4">
         <h2 className='text-lg font-semibold underline'>Your To-do:</h2> 
         <div className="todos py-2">
-          {todos.map((todo, index) => (
+          {filteredTodos.map((todo, index) => (
             <div className="todo flex py-2" key={index}>  
               <div className="text flex items-center">
                 {editIndex === index ? (
