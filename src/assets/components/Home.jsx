@@ -45,6 +45,12 @@ export default function Home() {
   const filteredTodos = todos.filter(todo => 
     todo.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const handleKeyDown =(e)=>{
+    if(e.key === "Enter"){
+      handleSave();
+    }
+  }
   return (
     <div className='container mx-auto py-4'>
       <h1 className='text-center text-2xl/10 font-extrabold h-10 underline'>
@@ -73,6 +79,7 @@ export default function Home() {
               className='bg-blue-300 h-60 w-full'
               value={newTodo}
               onChange={(e) => setNewTodo(e.target.value)}
+              onKeyDown={handleKeyDown}
             ></textarea>
           </div>
           <div className='flex justify-end w-full py-2 gap-4 mt-4'>
